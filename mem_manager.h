@@ -58,7 +58,7 @@ struct MemoryManager {
 
     void free_cache() {
         dlNode* tmp = cache.top();
-        while (cache.empty()) {
+        while (!cache.empty()) {
             if (tmp->segment->status == segment_status::IS_DELETED) {
                 delete tmp->segment;
                 delete tmp;
